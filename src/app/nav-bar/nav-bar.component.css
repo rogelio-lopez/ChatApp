@@ -1,0 +1,23 @@
+.nav-bar{
+  height: 70px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background-color: lightblue;
+}
+.nav-items{
+  display: flex;
+  height: 50px;
+  width: 500px;
+  align-items: flex-end;
+  justify-content: space-around;
+}
+h2{
+  margin-bottom: 3px;
+  cursor: pointer;
+}
+h4{
+  margin-bottom: 2px;
+  padding: 5px;
+  cursor: pointer;
+}

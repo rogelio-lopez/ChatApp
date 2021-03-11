@@ -1,54 +1,36 @@
 const Message = require('./models/message');
 
 const express = require('express');
-const { isBlockScopedBindingElement } = require('tslint');
 const app = express();
 
-app.get('/', (req, res) => {
-  res.send('Im in the app!');
+
+const messageDB = [
+  {user: 'rogelio', message: 'hello there', date: 'today at 9'},
+  {user: 'rogelio', message: 'hiii', date: 'today at 9:05'},
+  {user: 'cel', message: 'hello', date: 'today at 9:05'},
+  {user: 'rogelio', message: 'whats up', date: 'today at 9:06'},
+  {user: 'celeste', message: 'not much', date: 'today at 9:07'},
+  {user: 'rogelio', message: 'cool', date: 'today at 9:08'}
+];
+
+
+// My message history
+app.get('/message-history', (req, res) => {
+
+  const myMessages = [];
+  for (let message of messageDB){
+    if(message.user === 'rogelio'){
+      myMessages.push(message);
+    }
+  }
+
+  res.send(myMessages);
 });
 
-app.get('/add-message', (req, res) => {
-  const msg = new Message({
-    username: 'Rogelio',
-    message: "Whats up chat!",
-  });
-
-  msg.save()
-  .then((response) => {
-    res.send(response);
-  })
-  .catch(err => {
-    console.log(err);
-  })
-});
-
-app.get('/single-message', (req, res) => {
-  Message.findById('603d29bc7c8fdc1af01bd354')
-  .then(result => [
-    res.send(result)
-  ])
-  .catch(err => {
-    console.log(err);
-  })
-})
-
+// Messages in chat
 app.get('/all-messages', (req, res) => {
-  Message.find()
-  .then(result => {
-    res.send(result);
-  })
-  .catch(err => {
-    console.log(err);
-  })
-})
 
-// Login / Home
-
-// Live Chat
-
-
-// Message History
+});
 
 // 404
 app.use((req, res) => {

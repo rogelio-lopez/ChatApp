@@ -1,1 +1,21 @@
-<p>chat-page works!</p>
+<div class="chat-page">
+  <div class="page-header">
+    <h3>Start Chatting</h3>
+    <hr>
+  </div>
+
+  <div class="chat-box">
+
+    <div class="chat-display">
+
+      <div class="chat-loop" *ngFor="let msg of messageDB">
+        <app-message [messageInstance]="msg"></app-message>
+      </div>
+    </div>
+
+    <div class="chat-input">
+      <input placeholder="Message" #messageInput>
+      <button (click)="sendMessage()">Send</button>
+    </div>
+  </div>
+</div>

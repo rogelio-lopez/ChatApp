@@ -1,7 +1,11 @@
 <div class="app">
 
-  <div class="pages">
+  <!-- Nav Bar -->
+  <app-nav-bar (navButtonClicked)="selectPage($event)"></app-nav-bar>
 
-  </div>
+  <!-- Pages -->
+  <app-login-page *ngIf="page === 'login'"></app-login-page>
 
+  <app-history-page *ngIf="page === 'history'"></app-history-page>
+  <app-chat-page *ngIf="page === 'chat'"></app-chat-page>
 </div>

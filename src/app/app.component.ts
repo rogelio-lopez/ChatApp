@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'ChatApp';
+  page: string = 'chat';
+
+  selectPage(pageSelected: string){
+    this.page = pageSelected;
+  }
 }
