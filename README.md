@@ -1,2 +1,2 @@
 # ChatApp-TS
-Chat app to get more familiar with Typescript and Websockets (maybe Firebase)
+Chat app using Typescript and Websockets (eventually Firebase)
