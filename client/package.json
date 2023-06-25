@@ -1,19 +1,15 @@
 {
+  "name": "client",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "start": "snowpack dev",
-    "build": "snowpack build"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "dependencies": {
-    "canvas-confetti": "^1.2.0",
     "ws": "^8.13.0"
-  },
-  "devDependencies": {
-    "@snowpack/plugin-typescript": "^1.2.1",
-    "@types/canvas-confetti": "^1.0.0",
-    "@types/snowpack-env": "^2.3.3",
-    "@types/ws": "^8.5.4",
-    "prettier": "^2.2.1",
-    "snowpack": "^3.3.7",
-    "typescript": "^4.9.5"
   }
 }
