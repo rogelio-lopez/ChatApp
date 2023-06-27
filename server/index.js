@@ -11,24 +11,14 @@ server.listen(port, () => {
   console.log(`Listening to port: ${port}`);
 });
 
-
-const users = {};
-
 wss.on('connection', (ws) => {
 
-  let userId = uuidv4();
-  users[userId] = ws;
+  console.log(`Connection established with users: ${ws}`);
 
-  console.log(`Connection established with users: ${userId}`);
-
-  ws.on('message', (msg) => {
-    console.log(`msg: ${msg}`);
+  ws.on('message', (msg, isBinary) => {
+    [...wss.clients].filter(c => c != ws).forEach(cl => cl.send(isBinary ? msg.toString() : msg));
   });
 
-  console.log("wss.client:");
-  console.log([...wss.clients]);
-  console.log("Users arr:")
-  console.log(users[userId]);
   //How to tell which user closed? 
 });
 
