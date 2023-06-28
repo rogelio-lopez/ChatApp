@@ -8,20 +8,15 @@
     <link rel="stylesheet" href="./styles.css">
   </head>
   <body>
-    <main>
-        <h1>Messenger thing</h1>  
+    <h1>Messenger thing</h1>  
 
-        <main>
-          <div id="Feed" class="msg-feed"></div>
-          <div class="input-msg">
-            <form id="Form">
-              <input id="Input" type="text"/>
-              <button id="Submit">Submit</button>
-            </form>
-          </div>
-        </main>
+    <main>
+      <div id="Feed" class="feed"></div>
+      <form id="Form">
+        <input id="Input" type="text" required minlength="1" autocomplete="off"/>
+        <button id="Submit">Submit</button>
+      </form>
     </main>
     <script src="app.js"></script>
-    <script src="ui.js"></script>
   </body>
 </html>
