@@ -1,2 +1,2 @@
-# ChatApp-TS
-Chat app using Typescript and Websockets (eventually Firebase)
+# ChatApp
+Chat app using VanillaJS and Websockets (eventually Firebase maybe?)
