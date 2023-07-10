@@ -1,49 +1,77 @@
+/* Styles */
+
+/* Variables */
+:root{
+  --screen-w: calc(100% - 4em);
+  --screen-radius: 35px;
+  --screen-w-border: calc(100% - 4em - 4px);
+  --border-w: 2px;
+}
+/* End Variables  */
+
+
+/* Helper Classes */
+.flx-centered{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* End Helper Classes */
+
+
 *{
   margin: 0;
   padding: 0;
   font-family: monospace;
 }
-
 body{
   width: 100vw;
   height: 100vh;
   min-width: 440px;
   min-height: 740px;
-  background: black;
-  color:  white;
-}
-
-body > h1{
-  height: 50px;
-  width: 100%;
-  text-align: center;
-  line-height: 1.5;
+  background: linear-gradient(.15turn,#efefef 33%, #e9e7e7 33%, #e9e7e7 66%, #e1e1e1 66%);
 }
 
 main {
-  height: calc(100% - 50px);
-  width: calc(100% - 40px);
+  position: relative;
+  height: 100%;
+  width: 100%;
+  max-height: 750px;
+  max-width: 425px;
   display: flex;
   flex-direction: column;
-  margin: auto;
-  position: relative;
-  overflow: hidden;
+  align-items: center;
+  justify-content: flex-end;
+  border-radius: var(--screen-radius);
+  background: white;
+}
+main::before{
+  z-index: -1;
+  content: '';
+  position: absolute;
+  top: -1em;
+  left: -1em;
+  height: calc(100% + 2em);
+  width: calc(100% + 2em);
+  border-radius: calc(var(--screen-radius) + 1em);
+  border: 1px solid #ffffffad;
+  background: #b5aeba2b;
 }
 
 main .feed{
-  height: calc(100% - 70px);
-  width: calc(100% - 2rem);
-  padding: 1rem;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  background: rgb(23 23 23);
+  height: 75%;
+  width: var(--screen-w);
 }
 
 main form{
-  width: 100%;
+  width: var(--screen-w-border);
   height: 60px;
-  margin-bottom: 10px;
+  margin-bottom: 2em;
   display: flex;
+  border: var(--border-w) solid black;
+  border-radius: calc(var(--screen-radius) - 1.5em);
+  overflow: hidden;
 }
 
 main form input{
@@ -51,7 +79,7 @@ main form input{
   height: calc(100% - 2px);
   padding-left: 10px;
   padding-right: 5px;
-  border: 1px solid #c8c8c8;
+  border: none;
   outline: none;
   border-bottom-left-radius: 5px;
 }
@@ -59,16 +87,21 @@ main form input{
 main form button{
   flex: 1;
   height: 100%;
-  border-bottom-right-radius: 5px;
   border: none;
+  background: transparent;
+}
+main form button span{
+  display: block;
+  height: calc(100% - 1em);
+  width: calc(100% - 1em);
+  border-radius: calc(var(--screen-radius) - 2em);
   color: white;
-  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 2px;
   background: #3861d8;
 }
 
 
+/* Feed Functionality */
 .feed > div{
   width: 100%;
   display: flex;
@@ -78,25 +111,27 @@ main form button{
 }
 .feed > div div p{
   width: fit-content;
-  padding: 5px 5px;
+  padding: 10px 15px;
   margin: 5px 0;
   color:  white;
+  border: var(--border-w) solid black;
 }
 .feed > div.mine,
 .feed > div.mine > div{
   display: flex;
-  justify-content:flex-start;
+  justify-content:flex-end;
 }
 .feed > div.mine p{
   background: #2e63ff;
-  border-radius: 5px 5px 5px 0;
+  border-radius: 25px 25px 0px 25px;
 }
 .feed > div.others,
 .feed > div.others > div{
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
 }
 .feed > div.others p{
   background: #bebebe;
-  border-radius: 5px 5px 0 5px;
+  border-radius: 0px 25px 25px 25px;
 }
+/* End Feed Functionality */

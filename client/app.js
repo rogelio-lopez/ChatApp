@@ -1,5 +1,5 @@
 // Resize browser to replicate phone screen
-window.resizeTo(450, 800);
+window.resizeTo(600, 852);
 
 // Websocket functions
 const port = 8000;
