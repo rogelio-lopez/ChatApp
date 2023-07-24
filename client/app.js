@@ -1,20 +1,3 @@
-// Resize browser to replicate phone screen
-window.resizeTo(600, 852);
-
-// Websocket functions
-const port = 8000;
-const ws = new WebSocket(`ws://localhost:${port}`);
-
-if (ws) {
-  ws.onopen = function() {
-    console.log("Connection with server established");
-  }
-
-  ws.onmessage = function(msg) {
-    msg.data.text().then(txt => display_new_messages(txt));
-  }
-}
-
 // Form submit to server 
 const feed = document.querySelector('#Feed');
 const input = document.querySelector('#Input');
@@ -22,7 +5,7 @@ const form = document.querySelector('#Form');
 
 form.addEventListener('submit', (ev) => {
   ev.preventDefault();
-
+  //SWitch this to use cookie or session storage to confirm that youre logged in not ws
   if (ws) {
     ws.send(input.value);
   }
@@ -30,6 +13,9 @@ form.addEventListener('submit', (ev) => {
   input.value = '';
 });
 
+ws.onmessage = function(msg) {
+  msg.data.text().then(txt => display_new_messages(txt));
+}
 
 function display_new_messages(msg, my_msg = false) {
   feed.innerHTML += `
@@ -37,4 +23,12 @@ function display_new_messages(msg, my_msg = false) {
       <div><p>${msg}</p></div>
     </div>
   `;
+
+  // Scroll to latest msg
+  feed.scrollTo(0, feed.scrollHeight);
 }
+
+/* TO DO
+*  only be able to submit messages if logged in (some sort of check)
+*   if not then disable msg input
+*/

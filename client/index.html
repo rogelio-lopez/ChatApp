@@ -8,6 +8,15 @@
     <link rel="stylesheet" href="./styles.css">
   </head>
   <body class="flx-centered">
+    <!--Use Cookie or local storage, if in local storage !usrname -> cant connect to server sorry not sorry-->
+    <!--Same bg but once log in, cool animation turning login to phone thing-->
+    <div class="login flx-centered">
+      <form id="LoginForm">
+        <input id="Username" type="text" required minlength="3" autocomplete="off"/>
+        <button id="LoginSubmit" class="flx-centered"><span class="flx-centered">Submit</span></button>
+      </form>
+    </div>  
+
     <main>
       <div id="Feed" class="feed"></div>
       <form id="Form">
@@ -16,5 +25,6 @@
       </form>
     </main>
     <script src="app.js"></script>
+    <script src="login.js"></script>
   </body>
 </html>

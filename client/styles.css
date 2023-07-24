@@ -1,3 +1,4 @@
+
 /* Styles */
 
 /* Variables */
@@ -24,7 +25,7 @@
   margin: 0;
   padding: 0;
   font-family: monospace;
-}
+} 
 body{
   width: 100vw;
   height: 100vh;
@@ -33,7 +34,15 @@ body{
   background: linear-gradient(.15turn,#efefef 33%, #e9e7e7 33%, #e9e7e7 66%, #e1e1e1 66%);
 }
 
-main {
+.login form{
+  width: 80%;
+}
+.login form input{
+  width: 100%;
+}
+
+main,
+.login{
   position: relative;
   height: 100%;
   width: 100%;
@@ -46,7 +55,16 @@ main {
   border-radius: var(--screen-radius);
   background: white;
 }
-main::before{
+.login{
+  height: 30%;
+  justify-content: center;
+}
+main.not-signed-in{
+  display: none;
+  visibility: hidden;
+}
+main::before,
+.login::before{
   z-index: -1;
   content: '';
   position: absolute;
@@ -61,7 +79,9 @@ main::before{
 
 main .feed{
   height: 75%;
-  width: var(--screen-w);
+  width: calc(var(--screen-w) - 1em);
+  padding: 0 1em;
+  overflow-y: scroll;
 }
 
 main form{
