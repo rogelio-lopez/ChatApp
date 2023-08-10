@@ -1,4 +1,3 @@
-
 /* Styles */
 
 /* Variables */
@@ -59,10 +58,7 @@ main,
   height: 30%;
   justify-content: center;
 }
-main.not-signed-in{
-  display: none;
-  visibility: hidden;
-}
+
 main::before,
 .login::before{
   z-index: -1;
@@ -120,7 +116,6 @@ main form button span{
   background: #3861d8;
 }
 
-
 /* Feed Functionality */
 .feed > div{
   width: 100%;
@@ -155,3 +150,15 @@ main form button span{
   border-radius: 0px 25px 25px 25px;
 }
 /* End Feed Functionality */
+
+
+/* Login Functionality */
+body.no-login main{
+  display: none;
+  visibility: hidden;
+}
+body:not(.no-login) .login{
+  display: none;
+  visibility: none;
+}
+/* End Login Functionality */

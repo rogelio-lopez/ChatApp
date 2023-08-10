@@ -7,21 +7,21 @@
     <title>My Chat</title>
     <link rel="stylesheet" href="./styles.css">
   </head>
-  <body class="flx-centered">
+  <body class="flx-centered no-login">
     <!--Use Cookie or local storage, if in local storage !usrname -> cant connect to server sorry not sorry-->
     <!--Same bg but once log in, cool animation turning login to phone thing-->
     <div class="login flx-centered">
       <form id="LoginForm">
-        <input id="Username" type="text" required minlength="3" autocomplete="off"/>
-        <button id="LoginSubmit" class="flx-centered"><span class="flx-centered">Submit</span></button>
+        <input id="LoginUsername" type="text" required minlength="3" autocomplete="off"/>
+        <button id="LoginSubmitBtn" class="flx-centered"><span class="flx-centered">Submit</span></button>
       </form>
     </div>  
 
-    <main>
-      <div id="Feed" class="feed"></div>
-      <form id="Form">
-        <input id="Input" type="text" required minlength="1" autocomplete="off"/>
-        <button id="Submit" class="flx-centered"><span class="flx-centered">Submit</span></button>
+    <main class="messenger">
+      <div id="MainFeed" class="feed"></div>
+      <form id="MainForm">
+        <input id="MainInput" type="text" required minlength="1" autocomplete="off" disabled/>
+        <button id="MainSubmitBtn" class="flx-centered"><span class="flx-centered">Submit</span></button>
       </form>
     </main>
     <script src="app.js"></script>

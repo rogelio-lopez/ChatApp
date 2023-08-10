@@ -1,34 +1,55 @@
-// Form submit to server 
-const feed = document.querySelector('#Feed');
-const input = document.querySelector('#Input');
-const form = document.querySelector('#Form');
+const main_feed = document.querySelector('#MainFeed');
+const main_input = document.querySelector('#MainInput');
+const main_form = document.querySelector('#MainForm');
 
-form.addEventListener('submit', (ev) => {
-  ev.preventDefault();
-  //SWitch this to use cookie or session storage to confirm that youre logged in not ws
-  if (ws) {
-    ws.send(input.value);
-  }
-  display_new_messages(input.value, true);
-  input.value = '';
-});
+// Messenger input
+function load_messeger(ws) {
+  main_form.addEventListener('submit', (ev) => {
+    ev.preventDefault();
 
-ws.onmessage = function(msg) {
-  msg.data.text().then(txt => display_new_messages(txt));
+    if (ws) {
+      ws.send(main_input.value);
+    }
+
+    display_msg(main_input.value, true);
+    main_input.value = '';
+  });
 }
 
-function display_new_messages(msg, my_msg = false) {
-  feed.innerHTML += `
+// WS on message
+function load_onmessage(ws) {
+  ws.onmessage = function(msg) {
+
+    let msg_obj = JSON.parse(msg.data);
+    console.log(msg_obj);
+
+    (msg_obj.type == "message") ?
+      display_msg(msg_obj.data) :
+      display_connecttion(msg_obj.data);
+  }
+}
+
+// Display users connection
+function display_connecttion(username) {
+  main_feed.innerHTML += `
+    <div class="user_connection">
+      <div><p>${username}</p></div>
+    </div>
+  `;
+}
+
+// Display messages
+function display_msg(msg, my_msg = false) {
+  main_feed.innerHTML += `
     <div class="${my_msg ? 'mine' : 'others'}">
       <div><p>${msg}</p></div>
     </div>
   `;
 
   // Scroll to latest msg
-  feed.scrollTo(0, feed.scrollHeight);
+  main_feed.scrollTo(0, main_feed.scrollHeight);
 }
 
 /* TO DO
-*  only be able to submit messages if logged in (some sort of check)
-*   if not then disable msg input
+* Work on styles for new message data being passed 
 */
