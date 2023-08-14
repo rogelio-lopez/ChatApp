@@ -22,7 +22,7 @@ wss.on('connection', (ws, req) => {
       data: `${username}`
     })));
 
-  // Sending object with username and message... Check it it goes through?
+  // Sending object with username and message
   ws.on('message', (msg) => {
 
     let msg_object = {
@@ -34,8 +34,4 @@ wss.on('connection', (ws, req) => {
     [...wss.clients].filter(c => c != ws)
       .forEach(cl => cl.send(JSON.stringify(msg_object)));
   });
-
-  //How to tell which user closed? 
 });
-
-

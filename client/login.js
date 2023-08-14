@@ -31,7 +31,3 @@ login_form.addEventListener('submit', (ev) => {
   load_messeger(ws);
   load_onmessage(ws);
 });
-
-/* To Do:
-* Better Login animation
-* */

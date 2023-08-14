@@ -32,8 +32,8 @@ function load_onmessage(ws) {
 // Display users connection
 function display_connecttion(username) {
   main_feed.innerHTML += `
-    <div class="user_connection">
-      <div><p>${username}</p></div>
+    <div class="user_connection flx-centered">
+      <p>${username} has connected</p>
     </div>
   `;
 }
@@ -52,4 +52,5 @@ function display_msg(msg, my_msg = false) {
 
 /* TO DO
 * Work on styles for new message data being passed 
+* Login animation
 */
