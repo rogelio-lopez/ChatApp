@@ -30,12 +30,34 @@ body{
   background: linear-gradient(.15turn,#efefef 33%, #e9e7e7 33%, #e9e7e7 66%, #e1e1e1 66%);
 }
 
+/* Login */
 .login form{
   width: 80%;
 }
 .login form input{
   width: 100%;
 }
+
+.login form {
+  display: flex;
+  margin-top: 2rem;
+}
+
+.login form input{
+  flex: 1;
+  height: 2rem;
+  padding: .5rem 0 .5rem 1rem;
+  border-radius: var(--screen-radius) 0 0 var(--screen-radius);
+  outline: none;
+}
+.login form button{
+  heihgt: 100%;
+  width: 100px;
+  border-radius: 0 var(--screen-radius) var(--screen-radius) 0;
+  background: #3861d8;
+  color: white;
+}
+
 
 main,
 .login{
@@ -70,6 +92,7 @@ main::before,
   background: #b5aeba2b;
 }
 
+/* Messenger Feed */
 main .feed{
   height: 75%;
   width: calc(var(--screen-w) - 1em);
